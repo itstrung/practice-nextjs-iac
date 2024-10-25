@@ -32,7 +32,7 @@ jobs:
         with:
           push: true
           file: Dockerfile
-          tags:  ${{ vars.ACR_LOGIN_SERVER }}/prod-blog-repo/app:${{ github.sha }}
+          tags:  ${{ vars.ACR_LOGIN_SERVER }}/prod-blog-repo:app-${{ github.sha }}
 
       
 
