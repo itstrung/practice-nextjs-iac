@@ -10,6 +10,9 @@ on:
 
 jobs:
   build:
+    permissions: 
+      id-token: write # This is required for requesting the OIDC JWT Token
+      contents: read # Required when GH token is used to authenticate with private repo
     runs-on: ubuntu-latest
 
     steps:
