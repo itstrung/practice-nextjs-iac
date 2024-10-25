@@ -30,10 +30,9 @@ jobs:
       - name: Build and Push to ACR
         uses: docker/build-push-action@v6
         with:
-          context: .
           push: true
           file: Dockerfile
-          tags: prod-blog-repo/blog-image:${{ github.sha }}
+          tags: ${{ github.sha }}
 
       
 
