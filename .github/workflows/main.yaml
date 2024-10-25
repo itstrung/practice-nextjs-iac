@@ -1,0 +1,39 @@
+name: GitHub Actions Main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # https://github.com/marketplace/actions/azure-container-registry-login
+      - name: Authenticate with ACR
+        uses: azure/docker-login@v2
+        with:
+          login-server: ${{ vars.ACR_LOGIN_SERVER }}
+          username: ${{ vars.ACR_ADMIN_USERNAME }}
+          password: ${{ secrets.ACR_ADMIN_PASSWORD }}
+
+      - name: Build and Push to ACR
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          file: Dockerfile
+          tags: prod-blog-repo/blog-image:${{ github.sha }}
+
+      
+
+      
+
+      
