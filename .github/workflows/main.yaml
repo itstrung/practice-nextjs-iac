@@ -34,7 +34,7 @@ jobs:
           file: Dockerfile
           tags:  ${{ vars.ACR_LOGIN_SERVER }}/prod-blog-repo:app-${{ github.sha }}
 
-      
+      # azure/container-apps-deploy-action@v2
 
       
 
