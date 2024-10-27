@@ -58,6 +58,7 @@ jobs:
           acrPassword: ${{ secrets.ACR_ADMIN_PASSWORD }}
           imageToDeploy: ${{ vars.ACR_LOGIN_SERVER }}/prod-blog-repo:app-${{ github.sha }}
           containerAppName: ${{ secrets.ACA_CONTAINER_NAME }}
+          containerAppEnvironment: ${{ secrets.ACA_ENVIRONMENT_NAME }}
           resourceGroup: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
 
     needs: build
